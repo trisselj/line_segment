@@ -33,10 +33,21 @@ class LineSegment: # Initializes the class
 
     def slope(self): # Calculates and returns the slope of the linesegment
         x1 = self._endpoint_1.get_x_coord()
-        y1 = self._endpoint_1.get_y_coord()
         x2 = self._endpoint_2.get_x_coord()
+        if x1 == x2: # Returns None if x1 = x2 
+            return None
+        y1 = self._endpoint_1.get_y_coord()
         y2 = self._endpoint_2.get_y_coord()
         return (y2 - y1) / (x2 - x1)
 
-    def is_parallel_to(self, other_line): # Returns the line segment as True (parallel) if the difference in slope is less than 0.000001
-        return abs(self.slope() - other_line.slope()) < 0.000001
+    def is_parallel_to(self, other_line):
+        # Checks if this line segment is parallel to another line segment
+        slope_self = self.slope()
+        slope_other = other_line.slope()
+        
+        # Compares if slopes are None
+        if slope_self is None or slope_other is None:
+            return slope_self == slope_other
+        
+        # Return True (parallel) if the slopes are < 0.000001
+        return abs(slope_self - slope_other) < 0.000001

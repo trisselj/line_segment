@@ -12,7 +12,7 @@ class Point: # Initializing the class
         return self._x_coord
     
     def get_y_coord(self): # Return for the y
-        return self._x_coord
+        return self._y_coord
     
     def distance_to(self, other_point): # Calculates and returns the distance to another point object
         return ((other_point.get_x_coord() - self._x_coord) ** 2 + (other_point.get_y_coord() - self._y_coord) ** 2) ** 0.5

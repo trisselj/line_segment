@@ -41,6 +41,9 @@ class LineSegment: # Initializes the class
         return (y2 - y1) / (x2 - x1)
 
     def is_parallel_to(self, other_line):
+        if self.length() == 0 or other_line.length() == 0: # Returns false for 0 length
+            return False
+        
         # Checks if this line segment is parallel to another line segment
         slope_self = self.slope()
         slope_other = other_line.slope()
